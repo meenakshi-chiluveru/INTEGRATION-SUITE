@@ -1,0 +1,100 @@
+From your handwritten notes, here is a simplified explanation of what an iFlow is in the context of SAP Cloud Platform Integration (CPI) and how it works for sending an email using Gmail:
+
+
+---
+
+What is an iFlow?
+
+An iFlow (integration flow) is a visual representation of how data moves from one system (sender) to another (receiver)
+ using SAP CPI. It defines the sequence and logic of integration steps.
+
+
+---
+
+Steps to Create iFlow for Sending Gmail:
+
+1. Create Credentials
+
+Go to Monitor > Integration and APIs > Security Material
+
+Click on Create > User Credentials
+
+Fill in the following:
+
+Name: Gmail (or any name)
+
+Username: Your Gmail ID
+
+Password: App password (not your normal Gmail password)
+
+
+
+
+---
+
+2. Deploy Credentials
+
+After entering the details, click Deploy
+
+These credentials will be used in your mail adapter inside the iFlow
+
+
+
+---
+
+3. Create iFlow
+
+Drag and drop the integration process block (start → end)
+
+Add a Mail Adapter to the receiver
+
+Set the mail adapter's connection details:
+
+Address: smtp.gmail.com:587
+
+Proxy Type: Internet
+
+Timeout: 30000 ms
+
+Authentication: PLAIN
+
+Credential Name: The one you created earlier
+
+Encryption: STARTTLS (mandatory)
+
+
+
+
+---
+
+4. Email Content Settings
+
+In the Mail Adapter – Processing tab:
+
+From: Your Gmail
+
+To: Recipient’s Gmail
+
+Subject: e.g., Integration CPI to Gmail
+
+Body: e.g., This is the first email sent from CPI
+
+MIME Type: text/plain
+
+
+
+---
+
+5. Trigger Email with Timer
+
+Add a Timer event at the start of the iFlow to automatically trigger the email.
+
+Timer will initiate the message flow at specified intervals.
+
+
+
+---
+
+This is how you create and configure an iFlow in SAP CPI to send emails using Gmail.
+
+Would you like me to convert this into a document or diagram for easy reference?
